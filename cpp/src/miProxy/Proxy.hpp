@@ -1,17 +1,12 @@
 #ifndef PROXY_HPP
 #define PROXY_HPP
 
-#include <fstream>
-#include <string>
-#include <vector>
-#include <optional>
-
 #include "Connection.hpp"
 #include "BitrateManager.hpp"
 #include "Logger.hpp"
-#include "HTTPMessage.hpp"
-#include "HTTPRequest.hpp"
-#include "HTTPResponse.hpp"
+#include <fstream>
+#include <string>
+#include <vector>
 
 class Proxy {
 public:
@@ -29,7 +24,7 @@ public:
 
 private:
     // Helper methods
-    void handleClientRequest(int read_sock);
+    void handleClientRequest(int client_sock, std::string &header);
     void addNewClient(int client_fd);
     void removeClient(int client_fd);
 
@@ -54,11 +49,6 @@ private:
 
     // open new connection to the web server
     int openWebSock();
-
-    // functions for sending messages to client/server from proxy
-    void sendHTTPMessage(int sock, HTTPMessage &http_message);
-    HTTPRequest receiveHTTPRequest(int read_sock);
-    HTTPResponse receiveHTTPResponse(int read_sock);
 };
 
 #endif  // PROXY_HPP

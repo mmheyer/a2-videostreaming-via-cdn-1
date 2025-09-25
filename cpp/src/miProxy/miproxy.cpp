@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <unistd.h>  // Required for close()
 #include "Proxy.hpp"
-#include "../common/Logger.hpp"
+#include "Logger.hpp"
 
 // std::string get_server_IP(std::string &dns_ip, int dns_port) {
 //     // TODO: finish for DNS mode

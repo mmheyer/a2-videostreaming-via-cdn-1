@@ -6,9 +6,7 @@ set(
     BitrateManager.cpp
     Connection.cpp
     manifest_parser.cpp
-    HTTPMessage.cpp
-    HTTPRequest.cpp
-    HTTPResponse.cpp
+    http_handler.cpp
 )
 
 # Tell CMake to create an executable named 'miProxy' from the source files

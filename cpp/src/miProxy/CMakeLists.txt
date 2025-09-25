@@ -2,6 +2,13 @@
 set(
     MIPROXY_SOURCES 
     miproxy.cpp
+    Proxy.cpp
+    BitrateManager.cpp
+    Connection.cpp
+    manifest_parser.cpp
+    HTTPMessage.cpp
+    HTTPRequest.cpp
+    HTTPResponse.cpp
 )
 
 # Tell CMake to create an executable named 'miProxy' from the source files

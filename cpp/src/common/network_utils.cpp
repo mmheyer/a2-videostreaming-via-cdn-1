@@ -1,9 +1,10 @@
 #include "network_utils.h"
 
-#include <stdio.h>      // perror(), fprintf()
+#include <stdio.h>      // spdlog::error(), fprintf()
 #include <string.h>     // memcpy()
 #include <sys/socket.h> // getsockname(), send()
 #include <unistd.h>     // close()
+#include "spdlog/spdlog.h"
 
 int make_server_sockaddr(struct sockaddr_in *addr, int port) {
     // (1) This is an Internet socket
@@ -37,7 +38,7 @@ int get_port_number(int sockfd) {
     struct sockaddr_in addr;
     socklen_t length = sizeof(addr);
     if (getsockname(sockfd, (sockaddr *)&addr, &length) == -1) {
-        perror("Error getting port of socket");
+        spdlog::error("Error getting port of socket");
         return -1;
     }
     return ntohs(addr.sin_port);

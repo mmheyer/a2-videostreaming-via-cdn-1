@@ -2,6 +2,8 @@
 set(
     LOADBALANCER_SOURCES 
     loadBalancer.cpp
+    DNSServer.cpp
+    LoadBalancers.cpp
 )
 
 # Tell CMake to create an executable named 'loadBalancer' from the source files
